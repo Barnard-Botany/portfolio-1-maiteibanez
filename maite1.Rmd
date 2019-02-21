@@ -1,0 +1,51 @@
+
+
+```{r}
+library("BIEN")
+library(ape) #Package for working with phylogenies in R
+library(maps) #Useful for making quick maps of occurrences
+library(sp) # A package for spatial data
+```
+
+```{r}
+# species
+A<-"Saccharum spontaneum" #wild sugarcane
+B<-"Oryza australiensis" #australian wild rice
+```
+
+```{r}
+Adata <-BIEN_occurrence_species(species = A, cultivated = FALSE, only.new.world = FALSE)
+Bdata <-BIEN_occurrence_species(species = B, cultivated = FALSE, only.new.world = FALSE)
+```
+
+```{r}
+str(Adata)
+head(Adata)
+tail(Adata)
+```
+
+```{r}
+str(Bdata)
+head(Bdata)
+tail(Bdata)
+```
+```{r}
+A_rangemap <- BIEN_ranges_load_species(A)
+map('world', fill=T, col="grey", bg = "light blue", xlim=c(-180,180),ylim=c(-80,80))
+plot(A_rangemap, col="green", add=T)
+```
+
+```{r}
+B_rangemap <- BIEN_ranges_load_species(B)
+map('world', fill=T, col="grey", bg = "light blue", xlim=c(-180,180),ylim=c(-80,80))
+plot(B_rangemap, col="green", add=T)
+```
+
+
+```{r}
+map('world', fill=T, col="grey", bg = "light blue", xlim=c(-180,180),ylim=c(-80,80))
+points(cbind(Adata$longitude, Adata$latitude), col="blue", pch=20, cex=1)
+points(cbind(Bdata$longitude, Bdata$latitude), col="red", pch=20, cex=1)
+```
+
+

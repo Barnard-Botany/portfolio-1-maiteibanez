@@ -1,0 +1,31 @@
+
+```{r}
+library("BIEN")
+library(ape) #Package for working with phylogenies in R
+library(maps) #Useful for making quick maps of occurrences
+library(sp)
+library(lattice)
+library(dplyr)
+library(doBy)
+```
+
+```{r}
+A<-"Quercus petraea"
+B<-"Quercus pyrenaica"
+C<-"Quercus"
+```
+
+```{r}
+# Create data frame of Calocedrus traits
+C_traits <- BIEN_trait_genus(genus = C)
+str(C_traits)
+C_traits
+```
+
+```{r}
+C_DBH <- BIEN_trait_traitbygenus(trait = "diameter at breast height (1.3 m)", genus = C)
+head(C_DBH)
+tail(C_DBH)
+str(C_DBH)
+```
+
