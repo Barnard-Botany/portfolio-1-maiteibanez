@@ -29,3 +29,4 @@ tail(C_DBH)
 str(C_DBH)
 ```
 
+Good start! Push this back to GitHub once you've finished the boxplot and t-test part of this assignment.
